@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Card from './components/Card';
 import { Ionicons } from '@expo/vector-icons';
 import Logo from './components/Logo';
+import Course from './components/Course';
 
 export default class App extends React.Component {
   render(){
@@ -33,44 +34,51 @@ export default class App extends React.Component {
         padding: 20, 
         paddingLeft: 12,
         paddingTop: 30
-        }} horizontal={true}>
-      <Logo
-      image={require("./assets/favicon.png")}
-      text="Framer X"
+        }} 
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        >
+      {logos.map((logo, index) => (
+        <Logo
+          key={index}
+          image={logo.image}
+          text={logo.text}
       />
-      <Logo
-      image={require("./assets/favicon.png")}
-      text="Figma"
-      />
+      ))}
+  
       </ScrollView>
       <Subtitle>Continue Learning</Subtitle>
       <ScrollView horizontal={true} 
       style={{ paddingBottom: 30 }}
       showsHorizontalScrollIndicator={false}
       >
-      <Card 
-        title="Styled Components"
-        image={require("./assets/adaptive-icon.png")}
-        caption="React Native"
-        logo={require("./assets/favicon.png")}
-        Subtitle="5 of 12 sections"
+      {cards.map((card, index) => (
+        <Card 
+        key={index}
+        title={card.title}
+        image={card.image}
+        caption={card.caption}
+        logo={card.logo}
+        Subtitle={card.subtitle}
       />
-      <Card 
-        title="Styled Components 2"
-        image={require("./assets/adaptive-icon.png")}
-        caption="React Native 2"
-        logo={require("./assets/favicon.png")}
-        Subtitle="5 of 12 sections"
-      />
-      <Card 
-        title="Styled Components 3"
-        image={require("./assets/adaptive-icon.png")}
-        caption="React Native 3"
-        logo={require("./assets/favicon.png")}
-        Subtitle="5 of 12 sections"
-      />
+      ))}
+
       </ScrollView>
       <StatusBar style="auto" />
+      <Subtitle>Popular Courses</Subtitle>
+      {courses.map((course, index) => (
+        <Course 
+          key={index}
+          image={course.image}
+          title={course.title}
+          subtitle={course.subtitle}
+          logo={course.logo}
+          author={course.author}
+          avatar={course.avatar}
+          caption={course.caption}
+        />
+      ))}
+     
       </ScrollView>
       </SafeAreaView>
     </Container>
@@ -118,3 +126,100 @@ const TitleBar=styled.View`
   padding-left:20px;
   padding-left: 80px;
   `;
+
+const logos = [
+  {
+    image: require("./assets/favicon.png"),
+    text: "Framer X"
+  },
+  {
+    image: require("./assets/favicon.png"),
+    text: "second one"
+  },
+  {
+    image: require("./assets/favicon.png"),
+    text: "third one"
+  },
+  {
+    image: require("./assets/favicon.png"),
+    text: "Fourth one"
+  },
+  {
+    image: require("./assets/favicon.png"),
+    text: "Fifth one"
+  },
+  {
+    image: require("./assets/favicon.png"),
+    text: "Sixth one"
+  }
+];
+
+const cards = [
+  {
+    title:"Styled Components 1",
+    image: require("./assets/adaptive-icon.png"),
+    caption:"React Native 2",
+    logo: require("./assets/favicon.png"),
+    Subtitle:"5 of 12 sections"
+  },
+  {
+    title:"Title 2",
+    image: require("./assets/adaptive-icon.png"),
+    caption:"React Native 2",
+    logo: require("./assets/favicon.png"),
+    Subtitle:"5 of 12 sections"
+  },
+  {
+    title:"Styled Components 3",
+    image: require("./assets/adaptive-icon.png"),
+    caption:"React Native 2",
+    logo: require("./assets/favicon.png"),
+    Subtitle:"5 of 12 sections"
+  },
+  {
+    title:"title 4",
+    image: require("./assets/adaptive-icon.png"),
+    caption:"React Native 2",
+    logo: require("./assets/favicon.png"),
+    Subtitle:"5 of 12 sections"
+  }
+];
+
+const courses = [
+  {
+    title: "Titulo uno Studio",
+    subtitle: "Subtitlo de este modulo",
+    image: require("./assets/adaptive-icon.png"),
+    logo: require("./assets/favicon.png"),
+    author: "Its Me, Mario",
+    avatar: require("./assets/favicon.png"),
+    caption: "Design and interactive prototype"
+  },
+  {
+    title: "Titulo uno Studio",
+    subtitle: "Subtitlo de este modulo",
+    image: require("./assets/adaptive-icon.png"),
+    logo: require("./assets/favicon.png"),
+    author: "Its Me, Mario",
+    avatar: require("./assets/favicon.png"),
+    caption: "Design and interactive prototype"
+  },
+  {
+    title: "Titulo uno Studio",
+    subtitle: "Subtitlo de este modulo",
+    image: require("./assets/adaptive-icon.png"),
+    logo: require("./assets/favicon.png"),
+    author: "Its Me, Mario",
+    avatar: require("./assets/favicon.png"),
+    caption: "Design and interactive prototype"
+  },
+  {
+    title: "Titulo uno Studio",
+    subtitle: "Subtitlo de este modulo",
+    image: require("./assets/adaptive-icon.png"),
+    logo: require("./assets/favicon.png"),
+    author: "Its Me, Mario",
+    avatar: require("./assets/favicon.png"),
+    caption: "Design and interactive prototype"
+  },
+]
