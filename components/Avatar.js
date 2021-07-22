@@ -23,15 +23,17 @@ class Avatar extends React.Component {
     };
 
     componentDidMount(){
-        fetch("https://fakerapi.it/api/v1/persons")
+        fetch("https://uifaces.co/api", {headers: new Headers({
+            "X-API-KEY": " 56B5BC4D-8E2F435E-A3277D41-2130D273"
+        })})
         .then(response => response.json())
         .then(response => {
-            console.log(response.data[0].firstname);
+            console.log(response[0].name);
             this.setState({
-                photo: response.data[0].image
+                photo: response[0].photo
             });
 
-            this.props.updateName(response.data[0].firstname);
+            this.props.updateName(response[0].name);
         });
     }
 
