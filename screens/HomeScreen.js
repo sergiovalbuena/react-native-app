@@ -7,9 +7,10 @@ import Logo from '../components/Logo';
 import Course from '../components/Course';
 import Menu from '../components/Menu';
 import { connect } from 'react-redux';
+import Avatar from '../components/Avatar';
 
 function mapStateToProps(state){
-    return{action: state.action} 
+    return{action: state.action, name:state.name}; 
 }
 
 function mapDispatchToProps(dispatch){
@@ -76,10 +77,10 @@ class HomeScreen extends React.Component {
                         onPress={this.props.openMenu}
                         style={{ position: 'absolute', top:0, left: 20}}
                         >
-                        <Avatar source={require('../assets/adaptive-icon.png')}/>
+                        <Avatar />
                     </TouchableOpacity>
       <Title>Welcome back!,</Title>
-      <Name>Sergio</Name>
+      <Name>{this.props.name}</Name>
       <Ionicons 
       name="heart" 
       size={30} 
@@ -166,14 +167,6 @@ const Subtitle = styled.Text`
   text-transform: uppercase;
 `
 
-const Avatar = styled.Image`
-  width: 44px;
-  height: 44px;
-  background: black;
-  border-radius: 22px;
-  margin-left: 20px;
-
-`;
 const Container = styled.View`
   flex: 1;
   background-color: lightblue;
