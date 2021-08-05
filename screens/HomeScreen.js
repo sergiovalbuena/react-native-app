@@ -11,7 +11,7 @@ import Avatar from '../components/Avatar';
 
 function mapStateToProps(state){
     return{action: state.action, name:state.name}; 
-}
+} 
 
 function mapDispatchToProps(dispatch){
     return{
